@@ -1,0 +1,47 @@
+
+<a href="/"><button style="margin:20px; background-color:azure; border: none; outline: none; cursor: pointer;">Clique aqui para voltar a tela de cadastro</button></a>
+<div class=" p-5 rounded mt-3">
+<h1>Listar Placas e modelos</h1>
+<table  class ="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">modelo</th>
+      <th scope="col">Placa</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each valores}}
+    
+    <tr>
+      <th scope="row">{{id}}</th>
+      <td>{{placa}}</td>
+      <td>{{modelo}}</td>
+      <td>
+        <div class="row gap-1">
+            <div class="col-4 col-md-6">
+
+                <form action="/editar" method="post" >
+                    <input type="hidden"  name="id" value="{{id}}" >
+                       <button   class="w-100 btn btn-info ">Editar</button>
+                </form>
+            
+            </div>
+
+            
+             <div class="col-4 col-md-5">
+
+              <form action="/del" method="post">
+              <input type="hidden" value="{{id}}" name="id">
+              <button class="w-100 btn btn-danger">Deletar</button>
+              </form>
+             
+            </div>
+        </div>
+      </td>
+    </tr>
+{{/each}}
+
+  </tbody>
+</table>
